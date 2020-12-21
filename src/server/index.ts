@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import index from '../router'
 
 export default class Server{
 
@@ -21,8 +22,13 @@ export default class Server{
         this.app.use(express.static(publicPath));
     }
 
+    private routes(){
+        this.app.use(index);
+    }
+
     start(callback: () => void){
         this.app.listen(this.port, callback);
+        this.routes();
         this.publicFolder();
     }
 }

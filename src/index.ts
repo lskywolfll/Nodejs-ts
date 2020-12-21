@@ -1,4 +1,4 @@
-import Server from './server/server';
+import Server from './server';
 
 const server = Server.init(3000);
 
